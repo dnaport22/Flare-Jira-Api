@@ -1,0 +1,1 @@
+web: gunicorn jangorest.wsgi:application --log-file -
