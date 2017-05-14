@@ -1,1 +1,1 @@
-web: gunicorn jangorest.wsgi:application --log-file -
+web: gunicorn alexajira.wsgi:application --log-file -
