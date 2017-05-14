@@ -26,7 +26,7 @@ SECRET_KEY = '2h_(q27#jez-079x9z5#$zhycg!^n=0h@m6q-_*^_#hwq1ms*o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'alexajira.herokuapp.com']
 
 
 # Application definition
