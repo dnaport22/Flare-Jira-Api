@@ -6,6 +6,7 @@ import json
 class Service():
 
   BASE_URL = 'https://maddna.atlassian.net/rest/api/2'
+  SUCCESS_CODE = '201'
 
   def log_time(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/worklog'
@@ -13,10 +14,10 @@ class Service():
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
-    if re.status_code == '200':
+    if re.status_code == Service.SUCCESS_CODE:
       return True
-    else:
-      return False
+
+    return False
 
   def leave_comment(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/comment'
@@ -24,11 +25,10 @@ class Service():
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
-    return re.status_code
-    # if re.status_code == '200':
-    #   return True
-    # else:
-    #   return False
+    if re.status_code == Service.SUCCESS_CODE:
+      return True
+
+    return False
 
   def test(self, data):
     return data
