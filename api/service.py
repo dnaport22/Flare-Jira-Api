@@ -16,7 +16,7 @@ class Service():
 
   def leave_comment(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/comment'
-    body = json.dumps({"body": "This is a comment from python server"})
+    body = json.dumps({"body": data['comment']})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
     return re
