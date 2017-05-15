@@ -5,12 +5,12 @@ import json
 
 class Service():
 
-  BASE_URL = 'https://maddna.atlassian.net/rest/api/2'
+  BASE_URL = #BASE_URL
   SUCCESS_CODE = 201
 
   def log_time(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/worklog'
-    body = json.dumps({"comment": data['comment'], "started": "2017-05-10T23:43:04.454+0000", "timeSpentSeconds": data['timeSpent']})
+    body = json.dumps({"comment": data['comment'], "started": data['date'], "timeSpentSeconds": data['timeSpent']})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
@@ -34,7 +34,7 @@ class Service():
     return data
 
   def get_user_email(self):
-    return 'nav8699@gmail.com'
+    return #GET USER NAME | Hardcode it or get it from db
 
   def get_user_pass(self):
-    return 'Nav83573549'
+    return #GET PASSWORD | Hardcode it or get it from db
