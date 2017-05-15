@@ -28,7 +28,7 @@ class Service():
     if re.status_code == Service.SUCCESS_CODE:
       return True
 
-    return False
+    return re.status_code
 
   def test(self, data):
     return data
