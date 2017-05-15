@@ -24,10 +24,11 @@ class Service():
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
-    if re.status_code == '200':
-      return True
-    else:
-      return False
+    return re.status_code
+    # if re.status_code == '200':
+    #   return True
+    # else:
+    #   return False
 
   def test(self, data):
     return data
