@@ -12,14 +12,22 @@ class Service():
     body = json.dumps({"comment": data['comment'], "started": "2017-05-10T23:43:04.454+0000", "timeSpentSeconds": data['timeSpent']})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
-    return re
+
+    if re.status_code == '200':
+      return True
+
+    return False
 
   def leave_comment(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/comment'
     body = json.dumps({"body": data['comment']})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
-    return re
+
+    if re.status_code == '200':
+      return True
+
+    return False
 
   def test(self, data):
     return data
