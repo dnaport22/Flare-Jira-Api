@@ -6,7 +6,7 @@ import json
 class Service():
 
   BASE_URL = 'https://maddna.atlassian.net/rest/api/2'
-  SUCCESS_CODE = '201'
+  SUCCESS_CODE = 201
 
   def log_time(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/worklog'
