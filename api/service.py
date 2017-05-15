@@ -15,8 +15,8 @@ class Service():
 
     if re.status_code == '200':
       return True
-
-    return False
+    else:
+      return False
 
   def leave_comment(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/comment'
@@ -26,8 +26,8 @@ class Service():
 
     if re.status_code == '200':
       return True
-
-    return False
+    else:
+      return False
 
   def test(self, data):
     return data
