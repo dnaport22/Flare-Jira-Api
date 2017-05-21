@@ -22,7 +22,7 @@ class Service():
     return False
 
   def leave_comment(self, data):
-    return data
+    print data
     # url = Service.BASE_URL + '/issue/' + self.parse_ticket_number(data['issue']) + '/comment'
     # body = json.dumps({"body": data['comment']})
     # header = {"Content-Type": "application/json"}
