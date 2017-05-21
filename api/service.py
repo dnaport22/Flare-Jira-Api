@@ -34,7 +34,7 @@ class Service():
 
   def parse_ticket_number(self, issue):
     number = re.search(r'\d+', issue).group()
-    return number
+    return Service.PROJECT_ALIAS + '-' + number
 
 
   def test(self, data):
