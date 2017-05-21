@@ -2,6 +2,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import datetime
 import json
+import re
 
 class Service():
 
@@ -32,7 +33,8 @@ class Service():
     return self.parse_ticket_number(data['issue'])
 
   def parse_ticket_number(self, issue):
-    return issue
+    number = re.search(r'\d+', issue).group()
+    return number
 
 
   def test(self, data):
