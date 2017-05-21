@@ -5,8 +5,9 @@ import json
 
 class Service():
 
-  BASE_URL = #BASE_URL
+  BASE_URL = 'https://maddna.atlassian.net/rest/api/2'
   SUCCESS_CODE = 201
+  PROJECT_ALIAS = 'TP'
 
   def log_time(self, data):
     url = Service.BASE_URL + '/issue/' + data['issue'] + '/worklog'
@@ -26,15 +27,19 @@ class Service():
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
     if re.status_code == Service.SUCCESS_CODE:
-      return True
+      return self.parse_ticket_number(data['issue'])
 
-    return False
+    return self.parse_ticket_number(data['issue'])
+
+  def parse_ticket_number(self, issue):
+    return issue
+
 
   def test(self, data):
     return data
 
   def get_user_email(self):
-    return #GET USER NAME | Hardcode it or get it from db
+    return 'nav8699@gmail.com'
 
   def get_user_pass(self):
-    return #GET PASSWORD | Hardcode it or get it from db
+    return 'Nav83573549'
