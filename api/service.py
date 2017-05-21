@@ -30,7 +30,7 @@ class Service():
     if re.status_code == Service.SUCCESS_CODE:
       return True
 
-    return url
+    return False
 
   def parse_ticket_number(self, issue):
     number = re.search(r'\d+', issue).group()
