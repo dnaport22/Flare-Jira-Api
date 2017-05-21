@@ -11,7 +11,7 @@ class Service():
   PROJECT_ALIAS = 'TP'
 
   def log_time(self, data):
-    url = Service.BASE_URL + '/issue/' + data['issue'] + '/worklog'
+    url = Service.BASE_URL + '/issue/' + self.parse_ticket_number(data['issue']) + '/worklog'
     body = json.dumps({"comment": data['comment'], "started": data['date'], "timeSpentSeconds": data['timeSpent']})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
@@ -22,15 +22,15 @@ class Service():
     return False
 
   def leave_comment(self, data):
-    url = Service.BASE_URL + '/issue/' + data['issue'] + '/comment'
+    url = Service.BASE_URL + '/issue/' + self.parse_ticket_number(data['issue']) + '/comment'
     body = json.dumps({"body": data['comment']})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
     if re.status_code == Service.SUCCESS_CODE:
-      return self.parse_ticket_number(data['issue'])
+      return True
 
-    return self.parse_ticket_number(data['issue'])
+    return False
 
   def parse_ticket_number(self, issue):
     number = re.search(r'\d+', issue).group()
