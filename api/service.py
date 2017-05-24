@@ -19,8 +19,10 @@ class Service():
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
     if re.status_code == Service.SUCCESS_CODE:
+      print body
       return body
 
+    print body
     return body
 
   def leave_comment(self, data):
