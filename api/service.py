@@ -52,4 +52,4 @@ class Service():
     return 'nav8699@gmail.com'
 
   def get_user_pass(self):
-    return 'Nav83573549'
+    return 'navdeep.dhuti@atlassianservice'
