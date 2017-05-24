@@ -21,7 +21,7 @@ class Service():
     if re.status_code == Service.SUCCESS_CODE:
       return re
 
-    print re
+    print body
 
   def leave_comment(self, data):
     url = Service.BASE_URL + '/issue/' + self.parse_ticket_number(data['issue']) + '/comment'
