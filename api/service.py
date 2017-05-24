@@ -19,9 +19,9 @@ class Service():
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
     if re.status_code == Service.SUCCESS_CODE:
-      return True
+      return body
 
-    return False
+    return body
 
   def leave_comment(self, data):
     url = Service.BASE_URL + '/issue/' + self.parse_ticket_number(data['issue']) + '/comment'
