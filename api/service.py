@@ -14,7 +14,7 @@ class Service():
     ticket_number = self.parse_ticket_number(data['issue'])
     time_worked = self.parse_time(int(data['timeSpent']))
     url = Service.BASE_URL + '/issue/' + ticket_number + '/worklog'
-    body = json.dumps({"comment": data['comment'], "started": data['date'], "timeSpentSeconds": time_worked})
+    body = json.dumps({"comment": data['comment'], "started": data['date']+'0000', "timeSpentSeconds": time_worked})
     header = {"Content-Type": "application/json"}
     re = requests.post(url, data=body, headers=header, auth=HTTPBasicAuth(self.get_user_email(), self.get_user_pass()))
 
