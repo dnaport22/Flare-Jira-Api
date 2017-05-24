@@ -12,6 +12,7 @@ def request_handler(request):
   ser = Service()
 
   if type == 'log_time':
+    print request.data
     return Response(request.data)
   if type == 'comment':
     return Response(ser.leave_comment(request.data))
