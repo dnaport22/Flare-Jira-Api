@@ -6,7 +6,7 @@ import re
 
 class Service():
 
-  BASE_URL = 'https://maddna.atlassian.net/rest/api/2'
+  BASE_URL = #BASE_URL
   SUCCESS_CODE = 201
   PROJECT_ALIAS = 'TP'
 
@@ -49,7 +49,7 @@ class Service():
     return data
 
   def get_user_email(self):
-    return 'nav8699@gmail.com'
+    return #GET USER NAME | Hardcode it or get it from db
 
   def get_user_pass(self):
-    return 'navdeep.dhuti@atlassianservice'
+    return #GET PASSWORD | Hardcode it or get it from db
